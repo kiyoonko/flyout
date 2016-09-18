@@ -44,24 +44,25 @@ body .inputs{
         top: 25vh;
         left: 5vw;
         width: 40vw;
-        height: 30vh;
+        height: 40vh;
         overflow: scroll;
     }
 
     body .weather-label{
         position: absolute;
-        top: 60vh;
+        top: 70vh;
         left: 5vw;
         font-family: 'Montserrat';
         font-size: 25px;
     }
     body .weather{
+        padding: 20px 20px;
         background-color: #eee;
         position: absolute;
-        top: 65vh;
+        top: 75vh;
         left: 5vw;
         width: 40vw;
-        height: 30vh;
+        height: 20vh;
         overflow: visible;
     }
     body .attractions-label{
