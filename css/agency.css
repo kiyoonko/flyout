@@ -35,6 +35,7 @@ body .inputs{
         min-height: 30vh;
         max-height: 30vh;
     }
+    
     body .weather-label{
         position: absolute;
         top: 60vh;
@@ -51,6 +52,7 @@ body .inputs{
         max-width: 40vw;
         min-height: 30vh;
         max-height: 30vh;
+        overflow: visible;
     }
     body .attractions-label{
         position: absolute;
