@@ -881,3 +881,37 @@ img::-moz-selection {
 body {
     webkit-tap-highlight-color: #fed136;
 }
+
+input {
+  height: 30px;
+  padding: 20px 10px;
+}
+
+input.btn-xl {
+  height: 50px;
+  padding: 10px 20px;
+}
+
+.ui-menu {
+    list-style: none;
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+.ui-menu .ui-menu-item {
+    background: white;
+    color: black;
+    width: 190px;
+    padding: 0 20px;
+    position: relative;
+    left: -40px;
+}
+
+.ui-menu .ui-menu-item a{
+    color: black;
+}
+
+.ui-state-focus
+{
+    background:#ffaaaa;
+}

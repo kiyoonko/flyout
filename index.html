@@ -54,7 +54,7 @@
           }
         });
       },
-      minLength: 1,
+      minLength: 2,
       select: function( event, ui ) {
       },
       open: function() {
@@ -78,7 +78,7 @@
           }
         });
       },
-      minLength: 1,
+      minLength: 24,
       select: function( event, ui ) {
       },
       open: function() {
@@ -88,20 +88,6 @@
         $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
       }
     });
-    document.getElementById('search').addEventListener("click", searchFlights);
-  });
-  function searchFlights() {
-    const currentcity = document.getElementById('currentcity').value;
-    const destination = document.getElementById('destination').value;
-    var start = document.getElementById('startdate').value;
-    var end = document.getElementById('enddate').value;
-
-    $.get(
-      'https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=JoACnaLmM7bXw89clwCK60gLKP24Xp2p&origin=' + currentcity + '&destination=' + destination + '&departure_date=' + start + '&return_date' + end,
-      function(response) {
-        console.log(response);
-      }
-    );
   }
   </script>
 
@@ -150,13 +136,13 @@
                 <div class="intro-heading">Ready to Plan?</div>
                 <div class="intro-body"> From local events to mutual friends, from flights to local attractions, we got your back.</div>
             </div>
-            <div class="intro-fields">
-                <input type = "text" id = "currentcity" placeholder = "Going From"></input>
-                <input type = "text" id = "destination" placeholder = "Going To"></input>
-                <input type = "date" id = "startdate" placeholder = "From"></input>
-                <input type = "date" id = "enddate" placeholder = "Until"></input>
-            <button class = "btn-xl" id="search"> Let's go! </button>
-        </div>
+            <form action="/response.html" method="get">
+                <input type = "text" id = "currentcity" name = "currentcity" placeholder = "Going From"></input>
+                <input type = "text" id = "destination" name = "destination" placeholder = "Going To"></input>
+                <input type = "date" name = "startdate" placeholder = "From"></input>
+                <input type = "date" name = "enddate" placeholder = "Until"></input>
+            <input class = "btn-xl" value="Let's go!" type="submit"> </input>
+          </div>
         </div>
 
     </header>

@@ -1,0 +1,13 @@
+function searchFlights() {
+  const currentcity = document.getElementById('currentcity').value;
+  const destination = document.getElementById('destination').value;
+  var start = document.getElementById('startdate').value;
+  var end = document.getElementById('enddate').value;
+
+  $.get(
+    'https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=JoACnaLmM7bXw89clwCK60gLKP24Xp2p&origin=' + currentcity + '&destination=' + destination + '&departure_date=' + start + '&return_date' + end,
+    function(response) {
+      console.log(response);
+    }
+  );
+}
