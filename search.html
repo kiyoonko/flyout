@@ -39,10 +39,24 @@
     <script>
       $(document).ready (function (){
         $.get(
-          'https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=JoACnaLmM7bXw89clwCK60gLKP24Xp2p&origin=' + localStorage.getItem('currentcity') + '&destination=' + localStorage.getItem('destination') + '&departure_date=' + localStorage.getItem('startdate') + '&number_of_results=1&return_date=' + localStorage.getItem('enddate'),
+          'https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=JoACnaLmM7bXw89clwCK60gLKP24Xp2p&origin=' + localStorage.getItem('currentcity') + '&destination=' + localStorage.getItem('destination') + '&departure_date=' + localStorage.getItem('startdate') + '&number_of_results=50&return_date=' + localStorage.getItem('enddate'),
           function(response) {
-            console.log(response.results[0]);
-            $('#flight').html(JSON.stringify(response.results[0]));
+            console.log(response.results);
+            var newHtml = `<table class = "table table-hover">
+              <tr>
+            <th>Flight #</th>
+            <th>To Flight</th>
+            <th>From Flight</th>
+            <th>Price</th>
+            </tr?>`
+            for(var i = 0; i < response.results.length; i++) {
+              toTime = response.results[i].itineraries[0].outbound.flights[0].departs_at.slice(11, 16);
+              fromTime = response.results[i].itineraries[0].inbound.flights[0].departs_at.slice(11, 16);
+              newHtml += `<tr><td>${response.results[i].itineraries[0].outbound.flights[0].flight_number}</td><td>${toTime}</td><td>${fromTime}</td><td>$${response.results[i].fare.total_price}</td></tr>`
+            }
+
+            newHtml += `</table>`;
+            $('#flight').html(newHtml);
           }
         );
         $.get(
@@ -50,10 +64,12 @@
 
           function(response) {
             console.log(response);
-            var lat = response.city.location.latitude;
-            var long = response.city.location.longitude;
-            var b = localStorage.getItem('startdate').split(/\D/);
-            var searchMonth = b[1];
+            $.get(
+              'https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-text?apikey=JoACnaLmM7bXw89clwCK60gLKP24Xp2p&city_name=' + response.city.name + '&number_of_images=1&number_of_results=20',
+              function(response) {
+                $('#attractions').html(JSON.stringify(response));
+              }
+            );
           }
         );
       });
@@ -94,10 +110,13 @@
     </div>
     <div id = "flight" class = "flight">
         <table class = "table table-hover">
+          <tr>
         <th>Flight #</th>
         <th>To Flight</th>
         <th>From Flight</th>
         <th>Price</th>
+        </tr>
+      <tr> <td>Loading flights...</td> </tr>
         </table>
     </div>
     <div class = "weather-label">
