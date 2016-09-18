@@ -27,9 +27,6 @@ body .inputs{
     }
     body .flight{
         background-color: #eee;
-        padding: 3px 3px;
-        border: 0 2px;
-        border-color: #333;
         position: absolute;
         top: 25vh;
         left: 5vw;
@@ -46,7 +43,7 @@ body .inputs{
         font-size: 25px;
     }
     body .weather{
-        border: 1px solid blue;
+        background-color: #eee;
         position: absolute;
         top: 65vh;
         left: 5vw;
@@ -63,7 +60,7 @@ body .inputs{
         font-size: 25px;
     }
     body .attractions{
-        border: 1px solid blue;
+        background-color: #eee;
         position: absolute;
         top: 25vh;
         left: 55vw;

@@ -99,12 +99,20 @@
     <div class = "flight-label">
         Cheapest Flights:
     </div>
-    <div id = "flight" class = "flight">
+    <div class = "flight">
         <table class = "table table-hover">
+            <thead>
+                <tr>
         <th>Flight #</th>
         <th>To Flight</th>
         <th>From Flight</th>
         <th>Price</th>
+        </tr>
+            </thead>
+            <tbody id = "flight"> <!--
+            $.get sdfkjl.json => forEach => $('#flight').append("<tr><td>" + data.flightnumber + "</td><td>" + data.To flightdeparture <br> data.Toflight arrival + "</td></tr>") #building a string aka you're basically dynamically adding the elements from the jquery.
+            -->
+            </tbody>
         </table>
     </div>
     <div class = "weather-label">
@@ -116,8 +124,14 @@
     <div class = "attractions-label">
         Local Attractions:
     </div>
-    <div id = "attractions" class = "attractions">
-        Loading local attractions...
+    <div class = "attractions">
+        <table class = "table table-hover">
+            <tbody id = "attractions"> 
+            <!--
+            $.get sdfkjl.json => forEach => $('#flight').append("<tr><td>" + data.flightnumber + "</td><td>" + data.To flightdeparture <br> data.Toflight arrival + "</td></tr>") #building a string aka you're basically dynamically adding the elements from the jquery.
+            -->
+            </tbody>
+        </table>
     </div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
