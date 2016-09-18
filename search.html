@@ -67,6 +67,7 @@
                   newHtml += `<tr><td>${i+1}</td><td><img src="${response.points_of_interest[i].main_image}" style = "height: 120px; width: 120px;"/></td><td>${response.points_of_interest[i].title}</td><td>${response.points_of_interest[i].details.short_description}</td></tr>`
                 }
                 $('#attractions').html(newHtml);
+                $('#weather').html('Nearly every September day warms to over 60 °F (16 °C) in Seattle. The city averages 3 days this month when the thermometer reaches into the 80s °F (over 27 °C). Temperatures above 90 °F (32 °C) are unusual here during September. The thermometer dips to 50 °F (10 °C) or below on an average of 6 nights.');
               }
             );
           }
