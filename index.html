@@ -90,14 +90,14 @@
     document.getElementById('search').addEventListener("click", searchFlights);
   });
   function searchFlights() {
-    sessionStorage.getItem('currentcity');
-    sessionStorage.setItem('currentcity', document.getElementById('currentcity').value);
-    sessionStorage.getItem('destination');
-    sessionStorage.getItem('destination', document.getElementById('destination').value);
-    sessionStorage.getItem('startdate');
-    sessionStorage.getItem('startdate', document.getElementById('startdate').value);
-    sessionStorage.getItem('enddate');
-    sessionStorage.getItem('enddate', document.getElementById('enddate').value);
+    localStorage.getItem('currentcity');
+    localStorage.setItem('currentcity', document.getElementById('currentcity').value);
+    localStorage.getItem('destination');
+    localStorage.setItem('destination', document.getElementById('destination').value);
+    localStorage.getItem('startdate');
+    localStorage.setItem('startdate', document.getElementById('startdate').value);
+    localStorage.getItem('enddate');
+    localStorage.setItem('enddate', document.getElementById('enddate').value);
   }
   </script>
 
@@ -140,20 +140,11 @@
                 <div class="intro-heading">Ready to Plan?</div>
                 <div class="intro-body"> From local events to mutual friends, from flights to local attractions, we got your back.</div>
             </div>
-            <form action="/response.html" method="get">
-<<<<<<< e5d91365368e2ce2f3bf75841c637d98300b8b3e
                 <input class = "intro" type = "text" id = "currentcity" name = "currentcity" placeholder = "Going From"></input>
                 <input class = "intro" type = "text" id = "destination" name = "destination" placeholder = "Going To"></input>
-                <input class = "intro" type = "date" name = "startdate" placeholder = "From"></input>
-                <input class = "intro" type = "date" name = "enddate" placeholder = "Until"></input> <br>
+                <input class = "intro" type = "date" id = 'startdate' name = "startdate" placeholder = "From"></input>
+                <input class = "intro" type = "date" id = 'enddate' name = "enddate" placeholder = "Until"></input> <br>
             	<a href = "search.html" class = "btn btn-xl"> Let's go! </a>
-=======
-                <input type = "text" id = "currentcity" name = "currentcity" placeholder = "Going From"></input>
-                <input type = "text" id = "destination" name = "destination" placeholder = "Going To"></input>
-                <input type = "date" name = "startdate" placeholder = "From"></input>
-                <input type = "date" name = "enddate" placeholder = "Until"></input>
-            <input class = "btn-xl" id = 'search' value="Let's go!" type="submit"> </input>
->>>>>>> oop
           </div>
         </div>
 

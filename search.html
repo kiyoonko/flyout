@@ -33,6 +33,38 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script>
+      $(document).ready (function (){
+        $.get(
+          'https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=JoACnaLmM7bXw89clwCK60gLKP24Xp2p&origin=' + localStorage.getItem('currentcity') + '&destination=' + localStorage.getItem('destination') + '&departure_date=' + localStorage.getItem('startdate') + '&number_of_results=1&return_date=' + localStorage.getItem('enddate'),
+          function(response) {
+            console.log(response.results[0]);
+            $('#flight').html(JSON.stringify(response.results[0]));
+          }
+        );
+        $.get(
+          'https://api.sandbox.amadeus.com/v1.2/location/' + localStorage.destination  + '?apikey=JoACnaLmM7bXw89clwCK60gLKP24Xp2p',
+
+          function(response) {
+            console.log(response);
+            var lat = response.city.location.latitude;
+            var long = response.city.location.longitude;
+            var b = localStorage.getItem('startdate').split(/\D/);
+            var searchDate = new Date(--b[0], --b[1], b[2]);
+            var searchString = searchDate.toISOString();
+            $.get(
+              'https://api.forecast.io/forecast/8e4c46c5124cf06fe5a7921f83011ae1/'+lat+','+long+','+searchString,
+              function(response) {
+                console.log(response);
+              }
+            )
+          }
+        );
+      });
+    </script>
+
 </head>
 
 <body id="page-top" class="index">
@@ -71,17 +103,17 @@
     </nav>
 
 
-        <div class = "flight">
-            flight
+        <div id = "flight" class = "flight">
+            Loading flight info...
         </div>
-        <div class = "facebookPublicEvent">
-            facebookEvent box
+        <div id = "facebookPublicEvent" class = "facebookPublicEvent">
+            Loading local events...
         </div>
-        <div class = "weather">
-        weather
+        <div id = "weather" class = "weather">
+          Loading weather tips...
         </div>
-        <div class = "attractions">
-        attractions
+        <div id = "attractions" class = "attractions">
+          Loading local attractions...
         </div>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
