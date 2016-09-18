@@ -11,47 +11,42 @@ body {
     font-family: 'Montserrat' !important;
 }
 
-@media(min-width:768px) {
+body .inputs{
+    position :absolute;
+    top: 15vh;
+    left: 15vw;
+}
 
+@media(min-width:768px) {
     body .flight{
         border: 1px solid blue;
         position: absolute;
-        top: 15vh;
+        top: 25vh;
         left: 5vw;
         min-width: 40vw;
         max-width: 40vw;
-        min-height: 40vh;
-        max-height: 40vh;
-    }
-    body .facebookPublicEvent{
-        border: 1px solid blue;
-        position: absolute;
-        top: 60vh;
-        left: 5vw;
-        min-width: 40vw;
-        max-width: 40vw;
-        min-height: 40vh;
-        max-height: 40vh;
+        min-height: 30vh;
+        max-height: 30vh;
     }
     body .weather{
         border: 1px solid blue;
         position: absolute;
-        top: 15vh;
-        left: 55vw;
+        top: 65vh;
+        left: 5vw;
         min-width: 40vw;
         max-width: 40vw;
-        min-height: 40vh;
-        max-height: 40vh;
+        min-height: 30vh;
+        max-height: 30vh;
     }
     body .attractions{
         border: 1px solid blue;
         position: absolute;
-        top: 60vh;
+        top: 25vh;
         left: 55vw;
         min-width: 40vw;
         max-width: 40vw;
-        min-height: 40vh;
-        max-height: 40vh;
+        min-height: 70vh;
+        max-height: 70vh;
     }
 }
 
@@ -222,7 +217,7 @@ fieldset[disabled] .btn-xl.active {
 
 .navbar-default {
     border-color: #000;
-    background-color: #222;
+    background-color: #333;
 }
 
 .navbar-default .navbar-brand {
@@ -293,7 +288,26 @@ fieldset[disabled] .btn-xl.active {
         font-weight: bold;
     }
 
+    .navbar-changed{
+        padding: 25px 0;
+        border: 0;
+        background-color: #222;
+        -webkit-transition: padding .3s;
+        -moz-transition: padding .3s;
+        transition: padding .3s;
+        font-weight: bold;
+    }
+
     .navbar-default .navbar-brand-white {
+        font-size: 2em;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        transition: all .3s;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .navbar-changed .navbar-brand-white {
         font-size: 2em;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
@@ -956,6 +970,10 @@ input.intro{
     height: 50px;
     width: 15vw;
     padding: 0px 20px;
+}
+input.submit{
+    position: absolute;
+    top: 20vh;
 }
 
 .hide-scroll{
