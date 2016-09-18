@@ -53,14 +53,7 @@
             var lat = response.city.location.latitude;
             var long = response.city.location.longitude;
             var b = localStorage.getItem('startdate').split(/\D/);
-            var searchDate = new Date(--b[0], --b[1], b[2]);
-            var searchString = searchDate.toISOString();
-            $.get(
-              'https://api.forecast.io/forecast/8e4c46c5124cf06fe5a7921f83011ae1/'+lat+','+long+','+searchString,
-              function(response) {
-                console.log(response);
-              }
-            )
+            var searchMonth = b[1];
           }
         );
       });
