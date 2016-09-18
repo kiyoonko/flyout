@@ -18,13 +18,17 @@ body .inputs{
 }
 
 @media(min-width:768px) {
-    body .table-stick{
-
-    }
+ 
     body .table-overflow{
         overflow: visible;
         max-width: 40vw;
         height: 265.5px;
+    }
+
+    body .table-overflow-attractions{
+        overflow: visible;
+        max-width: 40vw;
+        height: 619.5px;
     }
 
     body .flight-label{
@@ -74,7 +78,7 @@ body .inputs{
         left: 55vw;
         width: 40vw;
         height: 70vh;
-        overflow: visible;
+        overflow: scroll;
     }
 }
 
