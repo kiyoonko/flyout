@@ -50,9 +50,11 @@
             <th>Price</th>
             </tr>`
             for(var i = 0; i < response.results.length; i++) {
-              toTime = response.results[i].itineraries[0].outbound.flights[0].departs_at.slice(11, 16);
-              fromTime = response.results[i].itineraries[0].inbound.flights[0].departs_at.slice(11, 16);
-              newHtml += `<tr><td>${response.results[i].itineraries[0].outbound.flights[0].flight_number}</td><td>${toTime}</td><td>${fromTime}</td><td>$${response.results[i].fare.total_price}</td></tr>`
+              toTimeD = response.results[i].itineraries[0].outbound.flights[0].departs_at.slice(11, 16);
+              toTimeA = response.results[i].itineraries[0].outbound.flights[0].arrives_at.slice(11, 16);
+              fromTimeD = response.results[i].itineraries[0].inbound.flights[0].departs_at.slice(11, 16);
+              fromTimeA = response.results[i].itineraries[0].outbound.flights[0].arrives_at.slice(11, 16);
+              newHtml += `<tr><td>${response.results[i].itineraries[0].outbound.flights[0].flight_number}</td><td>D: ${toTimeD}<br/>A: ${toTimeA}</td><td>D: ${fromTimeD}<br/>A: ${fromTimeA}</td><td>$${response.results[i].fare.total_price}</td></tr>`
             }
 
             newHtml += `</table>`;
