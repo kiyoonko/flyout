@@ -42,22 +42,15 @@
           'https://api.sandbox.amadeus.com/v1.2/flights/low-fare-search?apikey=JoACnaLmM7bXw89clwCK60gLKP24Xp2p&origin=' + localStorage.getItem('currentcity') + '&destination=' + localStorage.getItem('destination') + '&departure_date=' + localStorage.getItem('startdate') + '&number_of_results=50&return_date=' + localStorage.getItem('enddate'),
           function(response) {
             console.log(response.results);
-            var newHtml = `<table class = "table table-hover">
-              <tr>
-            <th>Flight #</th>
-            <th>To Flight</th>
-            <th>From Flight</th>
-            <th>Price</th>
-            </tr>`
+            var newHtml = ``;
             for(var i = 0; i < response.results.length; i++) {
               toTimeD = response.results[i].itineraries[0].outbound.flights[0].departs_at.slice(11, 16);
               toTimeA = response.results[i].itineraries[0].outbound.flights[0].arrives_at.slice(11, 16);
               fromTimeD = response.results[i].itineraries[0].inbound.flights[0].departs_at.slice(11, 16);
               fromTimeA = response.results[i].itineraries[0].outbound.flights[0].arrives_at.slice(11, 16);
-              newHtml += `<tr><td>${response.results[i].itineraries[0].outbound.flights[0].flight_number}</td><td>D: ${toTimeD}<br/>A: ${toTimeA}</td><td>D: ${fromTimeD}<br/>A: ${fromTimeA}</td><td>$${response.results[i].fare.total_price}</td></tr>`
+              newHtml += `<tr><td>${response.results[i].itineraries[0].outbound.flights[0].operating_airline+response.results[i].itineraries[0].outbound.flights[0].flight_number}</td><td>D: ${toTimeD}<br/>A: ${toTimeA}</td><td>D: ${fromTimeD}<br/>A: ${fromTimeA}</td><td>$${response.results[i].fare.total_price}</td></tr>`
             }
 
-            newHtml += `</table>`;
             $('#flight').html(newHtml);
           }
         );
@@ -110,17 +103,21 @@
     <div class = "flight-label">
         Cheapest Flights:
     </div>
-    <div class = "flight" id = "flight">
-        <table class = "table table-hover">
+    <div class = "flight">
+        <table class = "table table-hover table-overflow">
+            <thead>
             <tr>
                 <th>Flight #</th>
                 <th>To Flight</th>
                 <th>From Flight</th>
                 <th>Price</th>
             </tr>
+            </thead>
+            <tbody id = "flight" class = "table-overflow">
             <tr> 
                 <td>Loading flights...</td> 
             </tr>
+            </tbody>
         </table>
     </div>
     <div class = "weather-label">
@@ -133,11 +130,11 @@
         Local Attractions:
     </div>
     <div class = "attractions">
-        <table class = "table table-hover">
-            <tbody id = "attractions"> 
-            <!--
-            $.get sdfkjl.json => forEach => $('#flight').append("<tr><td>" + data.flightnumber + "</td><td>" + data.To flightdeparture <br> data.Toflight arrival + "</td></tr>") #building a string aka you're basically dynamically adding the elements from the jquery.
-            -->
+        <table class = "table table-hover table-overflow">
+            <tbody id = "attractions" class = "table-overflow">
+            <tr> 
+                <td>Loading attractions...</td> 
+            </tr>
             </tbody>
         </table>
     </div>
