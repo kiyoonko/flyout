@@ -17,9 +17,9 @@ body {
         border: 1px solid blue;
         position: absolute;
         top: 15vh;
-        left: 10vh;
-        min-width: 40vh;
-        max-width: 40vh;
+        left: 5vw;
+        min-width: 40vw;
+        max-width: 40vw;
         min-height: 40vh;
         max-height: 40vh;
     }
@@ -27,9 +27,9 @@ body {
         border: 1px solid blue;
         position: absolute;
         top: 60vh;
-        left: 10vh;
-        min-width: 40vh;
-        max-width: 40vh;
+        left: 5vw;
+        min-width: 40vw;
+        max-width: 40vw;
         min-height: 40vh;
         max-height: 40vh;
     }
@@ -37,9 +37,9 @@ body {
         border: 1px solid blue;
         position: absolute;
         top: 15vh;
-        left: 60vh;
-        min-width: 40vh;
-        max-width: 40vh;
+        left: 55vw;
+        min-width: 40vw;
+        max-width: 40vw;
         min-height: 40vh;
         max-height: 40vh;
     }
@@ -47,9 +47,9 @@ body {
         border: 1px solid blue;
         position: absolute;
         top: 60vh;
-        left: 60vh;
-        min-width: 40vh;
-        max-width: 40vh;
+        left: 55vw;
+        min-width: 40vw;
+        max-width: 40vw;
         min-height: 40vh;
         max-height: 40vh;
     }
@@ -168,6 +168,7 @@ fieldset[disabled] .btn-primary.active {
 }
 
 .btn-xl {
+    margin-top: 3vh;
     padding: 20px 40px;
     border-color: #FA724B;
     border-radius: 3px;
@@ -346,14 +347,13 @@ header .intro-text .intro-lead-in {
     margin-bottom: 0px;
     font-size: 50px;
     line-height: 22px;
-    color: #FA724A;
+    color: #fff;
 }
 
 header .intro-text .intro-heading {
     margin-bottom: 0px;
-    text-transform: uppercase;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 25px;
+    font-size: 40px;
     font-weight: 700;
     line-height: 50px;
 }
@@ -371,7 +371,7 @@ header .intro-fields{
 @media(min-width:768px) {
     header .intro-text {
         padding-top: 35vh;
-        padding-bottom: 20vh;
+        padding-bottom: 10vh;
     }
 
     header .intro-text .intro-lead-in {
@@ -382,12 +382,17 @@ header .intro-fields{
     }
 
     header .intro-text .intro-heading {
-        margin-bottom: 50px;
-        text-transform: uppercase;
+        margin-bottom: 15px;
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-        font-size: 20px;
+        font-size: 40px;
         font-weight: 700;
         line-height: 40px;
+    }
+
+    header .intro-text .intro-body {
+        font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+        font-size: 15px;
+        line-hegit: 15px;
     }
 }
 
@@ -728,7 +733,7 @@ section#contact {
     background-position: center;
     background-repeat: no-repeat;
 }
-
+in
 section#contact .section-heading {
     color: #fff;
 }
@@ -737,7 +742,7 @@ section#contact .form-group {
     margin-bottom: 25px;
 }
 
-section#contact .form-group input,
+section#contact .form-group in,
 section#contact .form-group textarea {
     padding: 20px;
 }
@@ -947,19 +952,36 @@ input.btn-xl {
   padding: 10px 20px;
 }
 
+input.intro{
+    height: 50px;
+    width: 15vw;
+    padding: 0px 20px;
+}
+
+.hide-scroll{
+    overflow: hidden;
+}
+
 .ui-menu {
+    position: absolute;
     list-style: none;
-    max-height: 100px;
-    overflow-y: scroll;
+    display:inline-block;
+    overflow: scroll;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    width: 15vw;
+    bottom: 0;
 }
 
 .ui-menu .ui-menu-item {
     background: white;
     color: black;
-    width: 190px;
+    width: 14vw;
     padding: 0 20px;
     position: relative;
     left: -40px;
+    border: 1px;
+    border-style: groove;
 }
 
 .ui-menu .ui-menu-item a{

@@ -31,6 +31,9 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+    .ui-helper-hidden-accessible { display:none; }
+    </style>
 
     <script src="http://code.jquery.com/jquery-1.11.3.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
@@ -74,7 +77,7 @@
           }
         });
       },
-      minLength: 24,
+      minLength: 2 	,
       select: function( event, ui ) {
       },
       open: function() {
@@ -84,7 +87,7 @@
         $( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
       }
     });
-  }
+  });
   </script>
 
 </head>
@@ -133,11 +136,11 @@
                 <div class="intro-body"> From local events to mutual friends, from flights to local attractions, we got your back.</div>
             </div>
             <form action="/response.html" method="get">
-                <input type = "text" id = "currentcity" name = "currentcity" placeholder = "Going From"></input>
-                <input type = "text" id = "destination" name = "destination" placeholder = "Going To"></input>
-                <input type = "date" name = "startdate" placeholder = "From"></input>
-                <input type = "date" name = "enddate" placeholder = "Until"></input>
-            <input class = "btn-xl" value="Let's go!" type="submit"> </input>
+                <input class = "intro" type = "text" id = "currentcity" name = "currentcity" placeholder = "Going From"></input>
+                <input class = "intro" type = "text" id = "destination" name = "destination" placeholder = "Going To"></input>
+                <input class = "intro" type = "date" name = "startdate" placeholder = "From"></input>
+                <input class = "intro" type = "date" name = "enddate" placeholder = "Until"></input> <br>
+            	<a href = "search.html" class = "btn btn-xl"> Let's go! </a>
           </div>
         </div>
 
