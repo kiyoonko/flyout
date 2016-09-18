@@ -62,7 +62,11 @@
             $.get(
               'https://api.sandbox.amadeus.com/v1.2/points-of-interest/yapq-search-text?apikey=JoACnaLmM7bXw89clwCK60gLKP24Xp2p&city_name=' + response.city.name + '&number_of_images=1&number_of_results=20',
               function(response) {
-                $('#attractions').html(JSON.stringify(response));
+                var newHtml = ``;
+                for(var i = 0; i < response.points_of_interest.length; i++) {
+                  newHtml += `<tr><td><img src="${response.points_of_interest[i].main_image}" /></td><td>${response.points_of_interest[i].title}</td><td>${response.points_of_interest[i].details.short_description}</td></tr>`
+                }
+                $('#attractions').html(newHtml);
               }
             );
           }
@@ -114,8 +118,8 @@
             </tr>
             </thead>
             <tbody id = "flight" class = "table-overflow">
-            <tr> 
-                <td>Loading flights...</td> 
+            <tr>
+                <td>Loading flights...</td>
             </tr>
             </tbody>
         </table>
@@ -132,8 +136,8 @@
     <div class = "attractions">
         <table class = "table table-hover table-overflow">
             <tbody id = "attractions" class = "table-overflow">
-            <tr> 
-                <td>Loading attractions...</td> 
+            <tr>
+                <td>Loading attractions...</td>
             </tr>
             </tbody>
         </table>
